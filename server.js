@@ -4,6 +4,7 @@ async function connectToDb() {
 }
 
 const express = require("express");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const {MongoClient} = require('mongodb');
 const url = ('mongodb://localhost:27017');
@@ -11,6 +12,7 @@ const url = ('mongodb://localhost:27017');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 const client = new MongoClient(url);
 
